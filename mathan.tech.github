@@ -1,0 +1,37 @@
+import sqlite3
+import csv
+
+# Connect to the database
+conn = sqlite3.connect('Madara.db')
+cur = conn.cursor()
+
+# Drop table if it exists and create a new one
+cur.execute('DROP TABLE IF EXISTS IPL')
+cur.execute('''
+    CREATE TABLE IPL (
+        steam TEXT,
+        legendary_player TEXT,
+        cups_won INTEGER
+    )
+''')
+
+# Insert data into the table
+cur.execute('INSERT INTO IPL VALUES (?, ?, ?)', ('CSK', 'MS Dhoni', 5))
+cur.execute('INSERT INTO IPL VALUES (?, ?, ?)', ('MI', 'Rohit Sharma', 5))
+cur.execute('INSERT INTO IPL VALUES (?, ?, ?)', ('RCB', 'Virat Kohli', 1))
+
+conn.commit()
+
+# Export table data to CSV
+with open('Madara.db.csv', 'w', newline='') as d:
+    c = csv.writer(d)
+    cur.execute('SELECT * FROM IPL ORDER BY legendary_player DESC, steam')
+    headers = [i[0] for i in cur.description]
+    c.writerow(headers)
+    for row in cur.fetchall():
+        c.writerow(row)
+
+print("CSV file 'Madara.db.csv' has been created successfully!")
+
+# Close the database connection
+conn.close()
