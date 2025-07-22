@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title> Learning Python </title>
+</head>
+<body>
+<h1> Introduction of python </h1>
+<h2> About python function </h2>
+
+<p> This is about main functions of python, <br> Also about the working method of python
+</p>
+<p> <strong> Loops are the main function of python ,<br> There are two types of loops </strong></p>
+
+<ul>
+    <li> While loop</li>
+    <li> For loop</li>
+</ul>
+
+<p>  definition main is one of the main functions of python </p>
+
+<p> Random is a another function </p>
+
+<a href="https://www.python.org"> visit the link for more informations</a>
+
+<p> <strong> Sqlite3 is also one of undifined functions of python </strong></p>
+
+<a href="https://docs.python.org"> Click here for SQL </a>
+
+<p> <strong> Thank you for visiting this page ,<br> Have a greatfull day </strong></p>
+
+</body>
